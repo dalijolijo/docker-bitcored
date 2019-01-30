@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CONF=${DATA}/vertcoin.conf
+CONF=${DATA}/bitcore.conf
 
 if [ ! -e "${CONF}" ]; then
   echo "disablewallet=1
@@ -12,4 +12,4 @@ rpcuser=rpc
 rpcpassword=`dd if=/dev/urandom bs=18 count=1 2>/dev/null | base64`" > "${CONF}"
 fi
 
-exec vertcoind -datadir=${DATA} -conf=${CONF} "$@"
+exec bitcored -datadir=${DATA} -conf=${CONF} "$@"

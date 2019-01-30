@@ -1,71 +1,55 @@
 
-# docker-vertcoind
+# docker-bitcored
 
-[![Build Status](https://travis-ci.org/lukechilds/docker-vertcoind.svg?branch=master)](https://travis-ci.org/lukechilds/docker-vertcoind)
-[![Image Layers](https://images.microbadger.com/badges/image/lukechilds/vertcoind.svg)](https://microbadger.com/images/lukechilds/vertcoind)
-[![Docker Pulls](https://img.shields.io/docker/pulls/lukechilds/vertcoind.svg)](https://hub.docker.com/r/lukechilds/vertcoind/)
+[![Build Status](https://travis-ci.org/dalijolijo/docker-bitcored.svg?branch=master)](https://travis-ci.org/dalijolijo/docker-bitcored)
+[![Docker Pulls](https://img.shields.io/docker/pulls/dalijolijo/bitcored.svg)](https://hub.docker.com/r/dalijolijo/bitcored)
 
-> Run a full Vertcoin node with one command
+> Run a full Bitcore node with one command
 
 A Docker configuration with sane defaults for running a full
-Vertcoin node.
+Bitcore node.
 
 ## Usage
 
 ```
-docker run -v /home/username/vertcoin:/data -p 5889:5889 lukechilds/vertcoind
+docker run -v /home/username/bitcore:/data -p 5889:5889 dalijolijo/bitcored
 ```
 
-If there's a `vertcoin.conf` in the `/data` volume it'll be used. If not, one will be created for you with a randomly generated JSON-RPC password.
+If there's a `bitcore.conf` in the `/data` volume it'll be used. If not, one will be created for you with a randomly generated JSON-RPC password.
 
 ### JSON-RPC
 
 To access JSON-RPC you'll also need to expose port 5888. You probably only want this available to localhost:
 
 ```
-docker run -v /home/username/vertcoin:/data -p 5889:5889 -p 127.0.0.1:5888:5888 lukechilds/vertcoind
+docker run -v /home/username/bitcore:/data -p 5889:5889 -p 127.0.0.1:5888:5888 dalijolijo/bitcored
 ```
 
 ### CLI Arguments
 
-All CLI arguments are passed directly through to vertcoind.
+All CLI arguments are passed directly through to bitcored.
 
 You can use this to configure via CLI args without a config file:
 
 ```
-docker run -v /home/username/vertcoin:/data \
+docker run -v /home/username/bitcore:/data \
   -p 5889:5889 \
   -p 127.0.0.1:5888:5888 \
-  lukechilds/vertcoind -rpcuser=jonsnow -rpcpassword=ikn0wnothin
+  dalijolijo/bitcored -rpcuser=jonsnow -rpcpassword=ikn0wnothin
 ```
 
-Or just use the container like a vertcoind binary:
+Or just use the container like a bitcored binary:
 
 ```
-$ docker run lukechilds/vertcoind -version
-Vertcoin Core Daemon version v0.11.1.0-9c5018b
-Copyright (C) 2009-2017 The Vertcoin Core developers
-Copyright (C) 2009-2017 The Bitcoin Core developers
-
-Please contribute if you find Vertcoin Core useful. Visit
-<https://vertcoin.org> for further information about the software.
-The source code is available from <https://github.com/vertcoin/vertcoin>.
-
-This is experimental software.
-Distributed under the MIT software license, see the accompanying file COPYING
-or <https://opensource.org/licenses/MIT>
-
-This product includes software developed by the OpenSSL Project for use in the
-OpenSSL Toolkit <https://www.openssl.org> and cryptographic software written by
-Eric Young and UPnP software written by Thomas Bernard.
+$ docker run dalijolijo/bitcored -version
 ```
 
 ### Version
 
-You can also run a specific version of vertcoind if you want.
+You can also run a specific version of bitcored if you want.
 
 ```
-docker run -v /home/username/vertcoin:/data -p 5889:5889 lukechilds/vertcoind:v0.11.1.0
+docker run -v /home/username/bitcore:/data -p 5889:5889 dalijolijo/bitcored
 ```
 
 ## License

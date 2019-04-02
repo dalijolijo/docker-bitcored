@@ -5,8 +5,8 @@ CONF=${DATA}/bitcore.conf
 if [ ! -e "${CONF}" ]; then
   echo "disablewallet=1
 printtoconsole=1
-port=5889
-rpcport=5888
+port=8555
+rpcport=85556
 rpcallowip=0.0.0.0/0
 rpcuser=electrum
 rpcpassword=electrum" > "${CONF}"

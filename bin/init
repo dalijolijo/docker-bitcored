@@ -7,9 +7,9 @@ if [ ! -e "${CONF}" ]; then
 printtoconsole=1
 port=5889
 rpcport=5888
-rpcallowip=::/0
-rpcuser=rpc
-rpcpassword=`dd if=/dev/urandom bs=18 count=1 2>/dev/null | base64`" > "${CONF}"
+rpcallowip=0.0.0.0/0
+rpcuser=electrum
+rpcpassword=electrum" > "${CONF}"
 fi
 
 exec bitcored -datadir=${DATA} -conf=${CONF} "$@"

@@ -12,17 +12,17 @@ Bitcore node.
 ## Usage
 
 ```
-docker run -v /home/username/.bitcore:/data -p 5889:5889 dalijolijo/bitcored
+docker run -v /home/username/.bitcore:/data -p 8555:8555 dalijolijo/bitcored
 ```
 
 If there's a `bitcore.conf` in the `/data` volume it'll be used. If not, one will be created for you with a randomly generated JSON-RPC password.
 
 ### JSON-RPC
 
-To access JSON-RPC you'll also need to expose port 5888. You probably only want this available to localhost:
+To access JSON-RPC you'll also need to expose port 85556. You probably only want this available to localhost:
 
 ```
-docker run -v /home/username/.bitcore:/data -p 5889:5889 -p 127.0.0.1:5888:5888 dalijolijo/bitcored
+docker run -v /home/username/.bitcore:/data -p 8555:8555 -p 127.0.0.1:85556:85556 dalijolijo/bitcored
 ```
 
 ### CLI Arguments
@@ -33,8 +33,8 @@ You can use this to configure via CLI args without a config file:
 
 ```
 docker run -v /home/username/.bitcore:/data \
-  -p 5889:5889 \
-  -p 127.0.0.1:5888:5888 \
+  -p 8555:8555 \
+  -p 127.0.0.1:85556:85556 \
   dalijolijo/bitcored -rpcuser=<USERNAME> -rpcpassword=<PWD>
 ```
 
@@ -49,7 +49,7 @@ $ docker run dalijolijo/bitcored -version
 You can also run a specific version of bitcored if you want.
 
 ```
-docker run -v /home/username/.bitcore:/data -p 5889:5889 dalijolijo/bitcored:<VERSION>
+docker run -v /home/username/.bitcore:/data -p 8555:8555 dalijolijo/bitcored:<VERSION>
 ```
 
 ## License
